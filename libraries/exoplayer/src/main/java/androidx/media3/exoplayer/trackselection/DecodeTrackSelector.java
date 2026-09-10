@@ -130,9 +130,12 @@ public class DecodeTrackSelector extends DefaultTrackSelector {
         group.type == C.TRACK_TYPE_AUDIO
             ? decodePreferences.audioDecode
             : decodePreferences.videoDecode;
-    if (decode == C.DECODE_HARDWARE) {
+    if (decode == C.DECODE_HARDWARE && group.type == C.TRACK_TYPE_AUDIO) {
       return isMediaCodecRenderer(rendererCapability, group.type)
           && formatSupportLevel == C.FORMAT_HANDLED;
+    } else if (decode == C.DECODE_HARDWARE) {
+      return isMediaCodecRenderer(rendererCapability, group.type)
+          && formatSupportLevel >= C.FORMAT_EXCEEDS_CAPABILITIES;
     } else if (decode == C.DECODE_SOFTWARE) {
       return isFfmpegRenderer(rendererCapability, group.type)
           && formatSupportLevel >= C.FORMAT_EXCEEDS_CAPABILITIES;
