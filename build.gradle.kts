@@ -82,6 +82,6 @@ tasks.register<Exec>("assembleLibs") {
   group = "build"
   description = "Assembles release AARs for all lib- modules"
   dependsOn(subprojects.filter { it.name.startsWith("lib-") }.map { "${it.path}:assembleRelease" })
-  commandLine("cmd", "/c", "move.bat")
+  commandLine("bash", "/home/zhfall/src/github.com/FongMi/media/move.sh")
   workingDir(rootDir)
 }
