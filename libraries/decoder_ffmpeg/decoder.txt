@@ -1,0 +1,19 @@
+ENABLED_DECODERS=(vorbis opus flac mp2 mp3 aac ac3 eac3 dca)
+
+ENABLED_DECODERS=(
+    vorbis
+    opus
+    flac
+    mp2
+    mp3
+    aac
+    ac3
+    eac3
+    dca
+    alac
+    wavpack
+    wmav1
+    wmav2
+    pcm_s16le
+)
+
